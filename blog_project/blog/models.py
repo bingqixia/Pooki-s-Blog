@@ -15,7 +15,7 @@ class Post(models.Model):
     title = models.CharField(max_length=100)
     body = models.TextField()
     
-    create_time = models.DateTimeField()
+    created_time = models.DateTimeField()
     modified_time = models.DateTimeField()
 
     excerpt = models.CharField(max_length=200, blank=True)
@@ -24,6 +24,7 @@ class Post(models.Model):
     tags = models.ManyToManyField(Tag, blank=True)
 
     author = models.ForeignKey(User)
+    objects = models.Manager()
     def __str__(self):
         return self.title
 
